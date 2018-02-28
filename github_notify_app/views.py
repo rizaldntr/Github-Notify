@@ -27,7 +27,7 @@ def callback(request):
             if isinstance(event, MessageEvent):
                 if isinstance(event.message, TextMessage):
                     line_bot_api.reply_message(
-                        lhkashdbkwsad ljhlsdjlksdfjowelkjs lkj;i jasdf;skdfkhsadfoisaud lkhsadfoweuioevent.reply_token,
+                        event.reply_token,
                         TextSendMessage(text=event.message.text)
                     )
 
