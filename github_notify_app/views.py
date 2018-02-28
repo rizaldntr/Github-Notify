@@ -16,23 +16,24 @@ def callback(request):
     if request.method == 'POST':
         body = json.loads(request.body)
 
-        print ("====================================")
-        print ("Author: " + body['commit']['author']['name'])
-        print ("Branch: " + body['object_attributes']['ref'])
-        print ("Status: " + body['object_attributes']['status'])
-        print ("Commit Message: " + body['commit']['message'])
-        print ("Commit Url: " + body['commit']['url'])
-        print ("Details")
+        push_message = ""
+        push_message += "====================================\n"
+        push_message += "Author: " + body['commit']['author']['name'] + "\n"
+        push_message += "Branch: " + body['object_attributes']['ref'] + "\n"
+        push_message += "Status: " + body['object_attributes']['status'] + "\n"
+        push_message += "Commit Message: " + body['commit']['message'] + "\n"
+        push_message += "Commit Url: " + body['commit']['url'] + "\n"
+        push_message += "Details\n"
 
         for build in body['builds'] :
-            print ("    Name: " + build['name'])
-            print ("    Name: " + build['status'])
+            push_message += "    Name: " + build['name'] + "\n"
+            push_message += "    Status: " + build['status'] + "\n"
+            push_message += "=============" + "\n"
 
+        push_message += "===================================="
 
-        # # for event in events:
-        # #     print (event)
-        # #     if isinstance(event, MessageEvent):
-        # #         if isinstance(event.message, TextMessage):
+        line_bot_api.push_message("Ce19e93427b803f272445591d66546738", TextSendMessage(text=push_message))
+
         # #             line_bot_api.reply_message(
         # #                 event.reply_token,
         # #                 TextSendMessage(text=event.message.text)
