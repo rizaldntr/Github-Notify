@@ -26,7 +26,8 @@ SECRET_KEY = '2m=2tcfyl+r=aq50zst62wvo+f=*9p6l5)pzvd^8=hlvv-o6f8'
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'sulang.herokuapp.com'
+    'sulang.herokuapp.com',
+    '127.0.0.1'
 ]
 
 # Application definition

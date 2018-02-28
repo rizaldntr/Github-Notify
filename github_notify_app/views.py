@@ -12,7 +12,8 @@ parser = WebhookParser(settings.LINE_CHANNEL_SECRET)
 @csrf_exempt
 def callback(request):
     if request.method == 'POST':
-        print (request)
+        print (request.body)
+        print (request.META['X-Gitlab-Token'])
         # signature = request.META['HTTP_X_LINE_SIGNATURE']
         # body = request.body.decode('utf-8')
         #
