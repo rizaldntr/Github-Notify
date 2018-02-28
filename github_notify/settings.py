@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'github_notify_app'
 ]
 
 MIDDLEWARE = [
@@ -118,3 +119,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+LINE_CHANNEL_SECRET = "942d174b4981ea737a2bf7719d6aa55b"
+LINE_CHANNEL_ACCESS_TOKEN = "t6DNVmmcJQm7ZiG2hsWV+C75xoD7bxfguqHIbgDpAkAo8UtT/ElRNWl7ZfNSW2Ur9cX6V2od5C+lMvAPvg2TmupKC45YFuZqixaWcZw08h+IpFRe6amx0RcAnYmPRHZwr4rV7WwTx+nuqYdQ/oUjrwdB04t89/1O/w1cDnyilFU="
