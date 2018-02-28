@@ -12,17 +12,21 @@ parser = WebhookParser(settings.LINE_CHANNEL_SECRET)
 @csrf_exempt
 def callback(request):
     if request.method == 'POST':
-        print (request.body)
-        # signature = request.META['HTTP_X_LINE_SIGNATURE']
-        # body = request.body.decode('utf-8')
-        #
-        # # try:
-        # #     events = parser.parse(body, signature)
-        # # except InvalidSignatureError:
-        # #     return HttpResponseForbidden()
-        # # except LineBotApiError:
-        # #     return HttpResponseBadRequest()
-        # #
+        body = request.body
+
+        print ("====================================")
+        print ("Author: " + body['commit']['author']['name'])
+        print ("Branch: " + body['object_attributes']['ref'])
+        print ("Status: " + body['object_attributes']['status'])
+        print ("Commit Message: " + body['commit']['message'])
+        print ("Commit Url: " + body['commit']['url'])
+        print ("Details")
+
+        for build in body['builds'] :
+            print ("    Name: " + build['name'])
+            print ("    Name: " + build['status'])
+
+
         # # for event in events:
         # #     print (event)
         # #     if isinstance(event, MessageEvent):
